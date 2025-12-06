@@ -6,7 +6,7 @@ const checkRoleAuth = require('../middleware/roleAuth')
 const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/tracks')
 const { validateCreate } = require('../validators/users')
 
-router.get('/',checkAuth, getItems) //TODO: http://localhost:3001/api/1.0/tracks 🔴🔴
+router.get('/',checkAuth, getItems) //TODO: http://localhost:3000/api/1.0/tracks 🔴🔴
 
 router.get('/:id', checkOrigin, getItem)
 
