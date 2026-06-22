@@ -47,7 +47,7 @@
                 "start": 0,
                 "end": 333
             },
-            "url": "track-2.mp3"
+            "url": "rack-2.mp3"
         },
         {
             "_id": 4,
@@ -79,7 +79,7 @@
                 "start": 0,
                 "end": 333
             },
-            "url": "track-3.mp3"
+            "url": "/track-3.mp3"
         },
         {
             "_id": 6,
@@ -111,7 +111,7 @@
                 "start": 0,
                 "end": 333
             },
-            "url": "track-6.mp3"
+            "url": "/track-6.mp3"
         },
         {
             "_id": 8,

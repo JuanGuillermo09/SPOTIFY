@@ -11,10 +11,11 @@ app.use(express.json())
 app.use(express.static('public'));
 app.use('/api/1.0', require('./app/routes'))
 
-app.use(express.static(path.join(__dirname, '../angular-spotify-master/dist/spotify')));
+app.use(express.static(path.join(__dirname, 'dist/spotify')));
 
+ 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../angular-spotify-master/dist/spotify/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/spotify/index.html'));
 });
 
 app.listen(PORT, () => {
