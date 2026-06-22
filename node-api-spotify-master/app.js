@@ -11,14 +11,11 @@ app.use(express.json())
 app.use(express.static('public'));
 app.use('/api/1.0', require('./app/routes'))
 
-// 🔵 Angular estático
-app.use(express.static(path.join(__dirname, '../angular-spotify-master/dist/spotify')));
+app.use(express.static(path.join(__dirname, 'dist/spotify')));
 
-// 🔵 fallback Angular
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../angular-spotify-master/dist/spotify/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/spotify/index.html'));
 });
-
 
 app.listen(PORT, () => {
     console.log(`Tu API es http://localhost:${PORT}/api/1.0`)
