@@ -100,7 +100,10 @@ export class MultimediaService {
 
    setAudio(track: TrackModel): void {
     console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track.url);
-    this.audio.src = track.url
+    // Construir URL completa usando el dominio actual
+    const fullUrl = track.url.startsWith('http') ? track.url : `${window.location.origin}${track.url}`;
+    console.log('URL completa:', fullUrl);
+    this.audio.src = fullUrl
     this.audio.play()
   }
 
