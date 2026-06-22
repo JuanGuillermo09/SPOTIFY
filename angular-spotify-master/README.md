@@ -1,27 +1,171 @@
-# Spotify
+# Spotify Clone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+Una aplicación web de streaming de música construida con Angular y Node.js.
 
-## Development server
+## 📋 Descripción del Proyecto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Este proyecto es un clon de Spotify que consiste en:
 
-## Code scaffolding
+- **Frontend**: Aplicación Angular 16 para la interfaz de usuario
+- **Backend**: API REST con Node.js, Express y MongoDB
+- **Autenticación**: Sistema de autenticación con JWT y Passport
+- **Funcionalidades**: Reproducción de música, gestión de usuarios, y más
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🏗️ Arquitectura
 
-## Build
+```
+SPOTIFY/
+├── angular-spotify-master/     # Frontend Angular
+│   ├── src/
+│   │   ├── app/
+│   │   ├── assets/
+│   │   └── environments/
+│   └── package.json
+│
+└── node-api-spotify-master/   # Backend Node.js
+    ├── app/
+    │   ├── controllers/
+    │   ├── helpers/
+    │   └── middleware/
+    ├── config/
+    ├── public/
+    └── package.json
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Instalación y Configuración
 
-## Running unit tests
+### Prerrequisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js (v14 o superior)
+- MongoDB
+- npm o yarn
 
-## Running end-to-end tests
+### Backend (Node.js API)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Navegar al directorio del backend:
+```bash
+cd node-api-spotify-master
+```
 
-## Further help
+2. Instalar dependencias:
+```bash
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Configurar variables de entorno en el archivo `.env`:
+```env
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/spotify
+JWT_SECRET=your_secret_key
+```
+
+4. Iniciar el servidor:
+```bash
+npm start
+```
+
+El backend estará disponible en `http://localhost:3000`
+
+### Frontend (Angular)
+
+1. Navegar al directorio del frontend:
+```bash
+cd angular-spotify-master
+```
+
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Configurar el entorno en `src/environments/environment.ts`:
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api'
+};
+```
+
+4. Iniciar el servidor de desarrollo:
+```bash
+ng serve
+```
+
+La aplicación estará disponible en `http://localhost:4200`
+
+## 📦 Tecnologías Utilizadas
+
+### Frontend
+- **Angular 16**: Framework de JavaScript
+- **RxJS**: Programación reactiva
+- **ngx-cookie-service**: Gestión de cookies
+
+### Backend
+- **Node.js**: Runtime de JavaScript
+- **Express**: Framework web
+- **MongoDB**: Base de datos NoSQL
+- **Mongoose**: ODM para MongoDB
+- **JWT**: Autenticación con tokens
+- **Passport**: Middleware de autenticación
+- **bcryptjs**: Encriptación de contraseñas
+- **CORS**: Cross-Origin Resource Sharing
+
+## 🔧 Scripts Disponibles
+
+### Backend
+```bash
+npm start          # Inicia el servidor
+```
+
+### Frontend
+```bash
+ng serve           # Inicia el servidor de desarrollo
+ng build           # Construye el proyecto para producción
+ng test            # Ejecuta pruebas unitarias
+ng e2e             # Ejecuta pruebas end-to-end
+```
+
+## 📁 Estructura del Proyecto
+
+### Backend
+- `app.js`: Punto de entrada de la aplicación
+- `app/controllers/`: Controladores de la API
+- `app/helpers/`: Funciones auxiliares
+- `app/middleware/`: Middleware personalizados
+- `config/`: Configuración de la aplicación
+- `public/`: Archivos estáticos (tracks de audio)
+
+### Frontend
+- `src/app/`: Componentes y módulos de Angular
+- `src/assets/`: Recursos estáticos
+- `src/environments/`: Configuración de entornos
+
+## 🔐 Autenticación
+
+El sistema utiliza JWT (JSON Web Tokens) para la autenticación:
+- Registro de usuarios
+- Login con email y contraseña
+- Tokens JWT para sesiones seguras
+- Middleware de autenticación en rutas protegidas
+
+## 🎵 Funcionalidades
+
+- Reproducción de música
+- Gestión de biblioteca personal
+- Sistema de autenticación de usuarios
+- API RESTful para el backend
+- Interfaz responsive con Angular
+
+## 📝 Notas
+
+- Asegúrate de tener MongoDB ejecutándose antes de iniciar el backend
+- Configura correctamente las variables de entorno
+- El frontend necesita que el backend esté corriendo para funcionar correctamente
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para cualquier mejora.
+
+## 📄 Licencia
+
+Este proyecto es para fines educativos.

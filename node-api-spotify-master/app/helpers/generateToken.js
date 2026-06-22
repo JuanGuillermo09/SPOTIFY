@@ -25,6 +25,6 @@ const decodeSign = (token) => { //TODO: Verificar que el token sea valido y corr
     return jwt.decode(token, null)
 }
 
-
+console.log('JWT_SECRET =>', process.env.JWT_SECRET);
 
 module.exports = { tokenSign, decodeSign, verifyToken }
