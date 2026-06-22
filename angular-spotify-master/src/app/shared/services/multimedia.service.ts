@@ -102,8 +102,9 @@ export class MultimediaService {
    setAudio(track: TrackModel): void {
     console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track.url);
     // Construir URL completa usando la API base del entorno
-    const baseUrl = environment.production ? 'https://spotify-8qt0.onrender.com' : 'http://localhost:3000';
-    const fullUrl = track.url.startsWith('http') ? track.url : `${baseUrl}${track.url}`;
+    const apiBaseUrl = environment.api.replace('/api/1.0', '');
+    const fullUrl = track.url.startsWith('http') ? track.url : `${apiBaseUrl}${track.url}`;
+    console.log('API Base URL:', apiBaseUrl);
     console.log('URL completa:', fullUrl);
     this.audio.src = fullUrl
     this.audio.play()
