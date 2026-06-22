@@ -156,11 +156,55 @@ El sistema utiliza JWT (JSON Web Tokens) para la autenticación:
 - API RESTful para el backend
 - Interfaz responsive con Angular
 
+## 🌐 Despliegue en Producción
+
+### URL del Proyecto
+- **Producción**: https://spotify-8qt0.onrender.com/
+
+### Plataforma de Despliegue
+El proyecto está desplegado en **Render**, una plataforma de cloud computing que proporciona:
+
+- **Backend**: Node.js/Express con MongoDB Atlas
+- **Frontend**: Angular build servido estáticamente desde el backend
+- **Base de Datos**: MongoDB Atlas (base de datos en la nube)
+- **HTTPS**: Certificado SSL automático
+
+### Configuración de Despliegue
+
+1. **Backend Node.js**:
+   - El servidor Express sirve tanto la API REST como el build de Angular
+   - Configurado para servir archivos estáticos desde `dist/spotify`
+   - Variables de entorno configuradas en Render para MongoDB y JWT
+
+2. **Frontend Angular**:
+   - Build de producción generado con `ng build --configuration production`
+   - Archivos servidos estáticamente desde el backend
+   - URLs de tracks configuradas para funcionar con el dominio de producción
+
+3. **Base de Datos**:
+   - MongoDB Atlas para almacenamiento en la nube
+   - Configuración de conexión mediante variables de entorno
+
+### Flujo de Despliegue
+
+1. Hacer build del frontend Angular:
+```bash
+cd angular-spotify-master
+ng build --configuration production
+```
+
+2. Subir cambios al repositorio Git
+
+3. Render detecta los cambios y hace el despliegue automático
+
+4. El build de Angular se sirve desde el backend Node.js
+
 ## 📝 Notas
 
-- Asegúrate de tener MongoDB ejecutándose antes de iniciar el backend
+- Asegúrate de tener MongoDB ejecutándose antes de iniciar el backend localmente
 - Configura correctamente las variables de entorno
 - El frontend necesita que el backend esté corriendo para funcionar correctamente
+- En producción, el backend sirve tanto la API como el frontend Angular
 
 ## 🤝 Contribuciones
 
