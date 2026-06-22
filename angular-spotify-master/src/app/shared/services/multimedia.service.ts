@@ -1,6 +1,7 @@
 import { TrackModel } from './../../core/models/tracks.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Observer, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -100,8 +101,9 @@ export class MultimediaService {
 
    setAudio(track: TrackModel): void {
     console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track.url);
-    // Construir URL completa usando el dominio actual
-    const fullUrl = track.url.startsWith('http') ? track.url : `${window.location.origin}${track.url}`;
+    // Construir URL completa usando la API base del entorno
+    const baseUrl = environment.production ? 'https://spotify-8qt0.onrender.com' : 'http://localhost:3000';
+    const fullUrl = track.url.startsWith('http') ? track.url : `${baseUrl}${track.url}`;
     console.log('URL completa:', fullUrl);
     this.audio.src = fullUrl
     this.audio.play()
