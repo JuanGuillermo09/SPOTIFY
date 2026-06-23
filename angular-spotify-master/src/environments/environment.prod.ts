@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'https://spotify-g9kj.onrender.com/api/1.0'
+  api: 'https://spotify-u2r9.onrender.com/api/1.0'
 };
