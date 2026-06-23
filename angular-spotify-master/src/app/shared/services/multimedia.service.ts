@@ -16,7 +16,7 @@ export class MultimediaService {
   public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject('-00:00')
   public playerStatus$: BehaviorSubject<string> = new BehaviorSubject('paused')
   public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject(0)
-  
+
 
   constructor() {
 
@@ -99,22 +99,24 @@ export class MultimediaService {
 
   //TODO: Funciones publicas
 
-   setAudio(track: TrackModel): void {
-    console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track.url);
-    // Construir URL completa usando la API base del entorno
-    const apiBaseUrl = environment.api.replace('/api/1.0', '');
-    const fullUrl = track.url.startsWith('http') ? track.url : `${apiBaseUrl}${track.url}`;
-    console.log('API Base URL:', apiBaseUrl);
+  setAudio(track: TrackModel): void {
+    console.log('🐱‍🏍 track:', track.url);
+
+    const fullUrl = track.url.startsWith('http')
+      ? track.url
+      : `${environment.mediaUrl}/${track.url}`;
+
     console.log('URL completa:', fullUrl);
-    this.audio.src = fullUrl
-    this.audio.play()
+
+    this.audio.src = fullUrl;
+    this.audio.play();
   }
 
-   togglePlayer(): void {
+  togglePlayer(): void {
     (this.audio.paused) ? this.audio.play() : this.audio.pause()
   }
 
-   seekAudio(percentage: number): void {
+  seekAudio(percentage: number): void {
     const { duration } = this.audio
     const percentageToSecond = (percentage * duration) / 100
     this.audio.currentTime = percentageToSecond
